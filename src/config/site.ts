@@ -7,6 +7,6 @@ export const AUTHOR_URL = "https://github.com/theGoodOldDeveloper";
 export const AUTHOR_NAME = "TheGoodOldDeveloper";
 /**
  * A PRO-értesítő külső feliratkozó űrlapja. Üresen a „Értesítést kérek” gomb nem jelenik meg
- * (a „hamarosan” szöveg igen). A tulajdonos tölti ki; az app semmilyen adatot nem küld el.
+ * (a „hamarosan” szöveg igen). Az app semmilyen adatot nem küld el, a feliratkozás a külső űrlapon történik.
  */
-export const PRO_FORM_URL = "";
+export const PRO_FORM_URL = "https://tally.so/r/yXJ71W";
