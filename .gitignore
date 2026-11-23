@@ -1,0 +1,17 @@
+node_modules
+.next
+/data
+/backups
+.env*
+tsconfig.tsbuildinfo
+next-env.d.ts
+/_promptok/
+/dist
+/runtime
+/.claude/
+/AGENTS.md
+/CLAUDE.md
+*.db
+*.db-wal
+*.db-shm
+*.log
