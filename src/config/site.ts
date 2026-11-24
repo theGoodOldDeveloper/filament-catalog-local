@@ -3,7 +3,7 @@
 /** Ko-fi támogatói oldal (felső sáv, középen). */
 export const KOFI_URL = "https://ko-fi.com/photovegh";
 /** A szerző GitHub-profilja (bal oldali menü alján). */
-export const AUTHOR_URL = "https://github.com/theGoodOldDeveloper";
+export const AUTHOR_URL = "https://thegoodolddeveloper.com/";
 export const AUTHOR_NAME = "TheGoodOldDeveloper";
 /**
  * A PRO-értesítő külső feliratkozó űrlapja. Üresen a „Értesítést kérek” gomb nem jelenik meg

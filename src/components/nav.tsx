@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { AUTHOR_NAME, AUTHOR_URL } from "@/config/site";
 import { useT } from "@/i18n/client";
+import { QuitButton } from "@/components/quit-button";
 
 const ITEMS = [
   { href: "/", labelKey: "nav.dashboard", icon: "M3 12l9-8 9 8M5 10v10h5v-6h4v6h5V10" },
@@ -88,6 +89,7 @@ export function Nav() {
           <p className="pt-1 text-[10.5px] leading-relaxed text-faint">
             <kbd>/</kbd> {t("nav.hint.search")} · <kbd>n</kbd> {t("nav.hint.new")} · <kbd>g</kbd>+<kbd>k</kbd> {t("nav.hint.catalog")} · <kbd>g</kbd>+<kbd>t</kbd> {t("nav.hint.tuttirial")}
           </p>
+          <QuitButton />
           <a href={AUTHOR_URL} target="_blank" rel="noopener noreferrer" aria-label={t("nav.author.aria", { name: AUTHOR_NAME })}
             className="block pt-1 text-[11px] text-faint transition hover:text-accent-soft">{AUTHOR_NAME} <span aria-hidden="true">↗</span></a>
         </div>

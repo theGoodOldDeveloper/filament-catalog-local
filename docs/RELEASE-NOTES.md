@@ -17,7 +17,7 @@ Kiadás készítése / Making a release:
 ### 🇭🇺 Magyarul
 
 **Letöltés:** `FilamentCatalog-<verzió>-win-x64.zip` (kb. 40 MB) – Windows 10/11, 64 bit.
-Nem kell telepíteni semmit: csomagold ki, és kattints duplán az `indito.bat` fájlra.
+Nem kell telepíteni semmit: csomagold ki, és kattints duplán az `start.bat` fájlra.
 
 **Újdonságok**
 - <…>
@@ -37,7 +37,7 @@ megjelenhet „A Windows megvédte a számítógépet”. Kattints: *További in
 ### 🇬🇧 English
 
 **Download:** `FilamentCatalog-<version>-win-x64.zip` (about 40 MB) – Windows 10/11, 64-bit.
-Nothing to install: extract it and double-click `indito.bat`.
+Nothing to install: extract it and double-click `start.bat`.
 
 **What's new**
 - <…>

@@ -18,12 +18,12 @@ Rendszerkövetelmény: **Windows 10 vagy 11, 64 bites**. Nem kell telepítő, ne
 1. **Töltsd le** a legfrissebb csomagot a Releases oldalról: `https://github.com/theGoodOldDeveloper/filament-catalog-local/releases/latest`. A fájl neve `FilamentCatalog-<verzió>-win-x64.zip`, kb. 40 MB.
 2. **Tiltás feloldása (ajánlott, lásd lent):** jobb gomb a ZIP-en → *Tulajdonságok* → pipa a **Tiltás feloldása** mellett → *OK*.
 3. **Kicsomagolás:** jobb gomb a ZIP-en → **Az összes kibontása**. Válassz egy mappát, amit meg is tartasz (pl. `Dokumentumok`). A kicsomagolt mappa kb. 109 MB. A ZIP-en belülről az app nem indítható, az indító ezt ki is írja.
-4. **Indítás:** a kicsomagolt mappában kattints duplán az `indito.bat` fájlra. Megnyílik egy fekete ablak, majd magától a böngésző is (a cím `http://127.0.0.1:3210`).
+4. **Indítás:** a kicsomagolt mappában kattints duplán a `start.bat` fájlra. Egy rövid ablak megjelenik és bezárul, majd magától megnyílik a böngésző (a cím `http://127.0.0.1:3210`).
 5. **Nyelv:** az első indításkor felugró ablakban válaszd ki a nyelvet (magyar vagy angol). Ez lesz az alapértelmezett minden induláskor.
 
-**Kilépés:** zárd be a fekete ablakot. Amíg az ablak nyitva van, az app fut. A böngészőlap bezárása nem állítja le.
+**Kilépés:** kattints az alkalmazás bal oldali menüjének alján a **„Kilépés”** gombra. Az app a háttérben fut, ezért a böngészőlap bezárása nem állítja le; ilyenkor a `start.bat` újra megnyitja, a `stop.bat` pedig leállítja.
 
-Az app csak a saját gépeden figyel (`127.0.0.1`), ezért a tűzfal nem kérdez, és más nem éri el. Ha a 3210-es port foglalt, vagy már fut egy másik példány, a következő szabad portot használja; a pontos címet a fekete ablak kiírja.
+Az app csak a saját gépeden figyel (`127.0.0.1`), ezért a tűzfal nem kérdez, és más nem éri el. Ha a 3210-es port foglalt, vagy már fut egy másik példány, a következő szabad portot használja; a pontos címet megnyitáskor a böngésző mutatja.
 
 ### Windows-figyelmeztetés (SmartScreen)
 
@@ -46,13 +46,13 @@ Ez általában `C:\Users\<neved>\AppData\Local\FilamentCatalog`. A mappát az ap
 ### Mentés
 
 - **Gyors mentés:** **Adatkezelés → Biztonsági mentés letöltése**. Ez az adatbázis teljes másolata (filamentek, tekercsek, vásárlások, beállítások), futás közben is biztonságos. A feltöltött dokumentumokat **nem** tartalmazza.
-- **Teljes mentés:** zárd be az appot (a fekete ablakot), majd másold az adatmappát (`%LOCALAPPDATA%\FilamentCatalog`) egy biztonságos helyre, például pendrive-ra.
+- **Teljes mentés:** lépj ki az appból (Kilépés gomb), majd másold az adatmappát (`%LOCALAPPDATA%\FilamentCatalog`) egy biztonságos helyre, például pendrive-ra.
 - **Visszaállítás:** zárd be az appot. Töröld az adatmappából a `filament-catalog.db` kezdetű fájlokat, majd másold oda a mentést `filament-catalog.db` néven. Teljes mentésnél cseréld le a mappa teljes tartalmát.
 
 ### Frissítés
 
 1. Töltsd le az új ZIP-et, és csomagold ki egy **új mappába**.
-2. Indítsd onnan az `indito.bat` fájlt.
+2. Indítsd onnan az `start.bat` fájlt.
 3. A régi programmappát törölheted.
 
 Az adataid megmaradnak, mert az adatmappa a programmappán kívül van.
@@ -225,7 +225,7 @@ Az adatmappában vannak: `%LOCALAPPDATA%\FilamentCatalog`. Ha új ZIP-ből indí
 Az adatlapon a tekercseknél és a katalógus „Tekercsek” nézetében van. A Kártyák és a Táblázat nézetben nincs, mert ott egy filamenthez több tekercs is tartozhat.
 
 **Bezártam a böngészőt, de az app fut még?**
-Igen. Az app a fekete ablak bezárásáig fut. A böngészőt újra megnyithatod a fekete ablakban kiírt címen (alapesetben `http://127.0.0.1:3210`).
+Igen. Az app a „Kilépés” gombig (vagy a `stop.bat` futtatásáig) a háttérben fut. A böngészőt újra megnyithatod a `start.bat` fájllal, vagy a címen (alapesetben `http://127.0.0.1:3210`).
 
 **Szükség van internetre?**
 Nem. Az app semmit nem küld el magától.
@@ -238,7 +238,7 @@ Az app ingyenes. Ha tetszik, és szeretnéd támogatni, a felső sáv közepén 
 
 Készül egy **PRO** verzió is (a jobb felső sarokban a **PRO** gomb mutatja, mi lesz benne, és onnan érhető el a feliratkozás egy külső űrlapon). Az ingyenes, helyi verziót nem váltja ki.
 
-Szerző: [TheGoodOldDeveloper](https://github.com/theGoodOldDeveloper)
+Szerző: [TheGoodOldDeveloper](https://thegoodolddeveloper.com/)
 
 ---
 
@@ -293,12 +293,12 @@ Requirements: **Windows 10 or 11, 64-bit**. No installer is needed, you don't ne
 1. **Download** the latest package from the Releases page: `https://github.com/theGoodOldDeveloper/filament-catalog-local/releases/latest`. The file name is `FilamentCatalog-<version>-win-x64.zip`, about 40 MB.
 2. **Unblock (recommended, see below):** right-click the ZIP → *Properties* → tick **Unblock** next to the checkbox → *OK*.
 3. **Extract:** right-click the ZIP → **Extract All**. Choose a folder you will keep (e.g. `Documents`). The extracted folder is about 109 MB. The app cannot be started from inside the ZIP; the launcher tells you so.
-4. **Start:** in the extracted folder, double-click `indito.bat`. A black window opens, and then the browser opens by itself (the address is `http://127.0.0.1:3210`).
+4. **Start:** in the extracted folder, double-click `start.bat`. A short window appears and closes, and then the browser opens by itself (the address is `http://127.0.0.1:3210`).
 5. **Language:** on the first start, choose your language (Hungarian or English) in the pop-up window. This becomes the default every time you start the app.
 
-**Quitting:** close the black window. The app keeps running as long as that window is open. Closing the browser tab does not stop it.
+**Quitting:** click the **"Quit"** button at the bottom of the app's left menu. The app runs in the background, so closing the browser tab does not stop it; `start.bat` then just reopens it, and `stop.bat` stops it.
 
-The app only listens on your own computer (`127.0.0.1`), so the firewall will not ask, and nobody else can reach it. If port 3210 is busy, or another copy is already running, the app uses the next free port; the black window shows the exact address.
+The app only listens on your own computer (`127.0.0.1`), so the firewall will not ask, and nobody else can reach it. If port 3210 is busy, or another copy is already running, the app uses the next free port; the browser shows the exact address when it opens.
 
 ### Windows warning (SmartScreen)
 
@@ -321,13 +321,13 @@ This is usually `C:\Users\<your name>\AppData\Local\FilamentCatalog`. The app cr
 ### Backup
 
 - **Quick backup:** **Data → Download backup**. This is a full copy of the database (filaments, spools, purchases, settings), and it is safe to do while the app is running. It does **not** include uploaded documents.
-- **Full backup:** close the app (the black window), then copy the data folder (`%LOCALAPPDATA%\FilamentCatalog`) to a safe place, for example a USB stick.
+- **Full backup:** quit the app (Quit button), then copy the data folder (`%LOCALAPPDATA%\FilamentCatalog`) to a safe place, for example a USB stick.
 - **Restore:** close the app. Delete the `filament-catalog.db` files from the data folder, then copy your backup into it and name it `filament-catalog.db`. For a full backup, replace the entire contents of the folder.
 
 ### Update
 
 1. Download the new ZIP and extract it into a **new folder**.
-2. Start `indito.bat` from there.
+2. Start `start.bat` from there.
 3. You can delete the old program folder.
 
 Your data is kept, because the data folder is outside the program folder.
@@ -500,7 +500,7 @@ It is in the data folder: `%LOCALAPPDATA%\FilamentCatalog`. If you started the a
 It is on the spool rows of the filament data sheet and in the **Spools** view of the catalog. It is not in the Cards and Table views, because there one filament can have several spools.
 
 **I closed the browser, but is the app still running?**
-Yes. The app runs until you close the black window. You can reopen the browser at the address shown in the black window (usually `http://127.0.0.1:3210`).
+Yes. The app runs in the background until you click "Quit" (or run `stop.bat`). You can reopen the browser with `start.bat`, or at the address (usually `http://127.0.0.1:3210`).
 
 **Do I need internet?**
 No. The app does not send anything on its own.
@@ -513,7 +513,7 @@ The app is free. If you like it and want to support it, the button in the middle
 
 A **PRO** version is also in the works (the **PRO** button in the top-right corner shows what it will include, and from there you can sign up via an external form). It does not replace the free, local version.
 
-Author: [TheGoodOldDeveloper](https://github.com/theGoodOldDeveloper)
+Author: [TheGoodOldDeveloper](https://thegoodolddeveloper.com/)
 
 ---
 

@@ -18,11 +18,11 @@ goto end
 echo.
 echo   HIBA: a csomag fájljai nem találhatók az indító mellett.
 echo   Előbb csomagold ki a teljes ZIP-et egy mappába (jobb gomb, Az összes kibontása),
-echo   és a kicsomagolt mappából indítsd az indito.bat fájlt.
+echo   és a kicsomagolt mappából indítsd az start.bat fájlt.
 echo.
 echo   ERROR: the package files were not found next to the launcher.
 echo   Extract the whole ZIP into a folder first (right-click, Extract All),
-echo   then run indito.bat from the extracted folder.
+echo   then run start.bat from the extracted folder.
 goto wait
 
 :blocked
@@ -30,18 +30,18 @@ echo.
 echo   HIBA: a mellékelt futtató (runtime\node.exe) nem indítható el.
 echo   Valószínűleg a Windows vagy a víruskereső blokkolja. Engedélyezd a futtatását,
 echo   vagy a ZIP kicsomagolása ELŐTT: jobb gomb a ZIP-en, Tulajdonságok, Tiltás feloldása.
-echo   Részletek: OLVASSEL.txt
+echo   Részletek: README.txt
 echo.
 echo   ERROR: the bundled runtime (runtime\node.exe) cannot be started.
 echo   Windows or your antivirus is probably blocking it. Allow it to run,
 echo   or BEFORE extracting the ZIP: right-click the ZIP, Properties, Unblock.
-echo   Details: OLVASSEL.txt
+echo   Details: README.txt
 goto wait
 
 :failed
 echo.
-echo   Az alkalmazás hibával állt le. A fenti üzenet segít; részletek: OLVASSEL.txt
-echo   The app stopped with an error. See the message above; details: OLVASSEL.txt
+echo   Az alkalmazás nem indult el. A fenti üzenet segít; részletek: README.txt
+echo   The app did not start. See the message above; details: README.txt
 goto wait
 
 :wait

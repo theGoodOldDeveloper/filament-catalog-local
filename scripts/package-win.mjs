@@ -3,7 +3,7 @@
 //
 // A csomag szerkezete:
 //   FilamentCatalog-<verzió>-win-x64/
-//     indito.bat, OLVASSEL.txt, LICENSE.txt, LICENSES-third-party.txt
+//     start.bat, stop.bat, README.txt, LICENSE.txt, LICENSES-third-party.txt
 //     runtime/node.exe (+ LICENSE-node.txt)
 //     app/  ← .next/standalone + .next/static + public + drizzle + launcher.cjs
 import { execFileSync, spawnSync } from "node:child_process";
@@ -19,7 +19,7 @@ const NODE_ZIP_SHA256 = "4a191082e9706866830379d577d2cc8a50c776fcd9436a8d061b063
 const NODE_ARCHIVE = `node-v${NODE_VERSION}-win-x64`;
 const NODE_BASE_URL = `https://nodejs.org/dist/v${NODE_VERSION}`;
 const TARGET = "win32-x64";
-const FIRST_PORT = 3210; // ugyanaz, mint a launcher.cjs-ben (az OLVASSEL-be kerül)
+const FIRST_PORT = 3210; // ugyanaz, mint a launcher.cjs-ben (az README.txt-be kerül)
 const MAX_REL_PATH = 200; // a Windows 260 karakteres útvonalkorlátja miatt
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -132,14 +132,15 @@ async function addRuntime() {
 
 // ── 4. indító + leírás ───────────────────────────────────────────────────────
 function addLauncherFiles() {
-  step("indito.bat, OLVASSEL.txt, licencek");
+  step("start.bat, stop.bat, README.txt, licencek");
   const crlf = (s) => s.replace(/\r?\n/g, "\r\n");
   // A .bat CRLF nélkül hibásan ugrik a címkékre; BOM NEM kerülhet bele (a cmd parancsnak nézné).
-  fs.writeFileSync(path.join(outDir, "indito.bat"), crlf(fs.readFileSync(path.join(root, "scripts", "win", "indito.bat"), "utf8")));
-  const readme = fs.readFileSync(path.join(root, "scripts", "win", "OLVASSEL.txt"), "utf8")
+  fs.writeFileSync(path.join(outDir, "start.bat"), crlf(fs.readFileSync(path.join(root, "scripts", "win", "start.bat"), "utf8")));
+  fs.writeFileSync(path.join(outDir, "stop.bat"), crlf(fs.readFileSync(path.join(root, "scripts", "win", "stop.bat"), "utf8")));
+  const readme = fs.readFileSync(path.join(root, "scripts", "win", "README.txt"), "utf8")
     .replaceAll("{{VERSION}}", pkg.version).replaceAll("{{NODE}}", NODE_VERSION).replaceAll("{{PORT}}", String(FIRST_PORT));
   // BOM: a régebbi Jegyzettömb így biztosan UTF-8-ként nyitja meg
-  fs.writeFileSync(path.join(outDir, "OLVASSEL.txt"), "\uFEFF" + crlf(readme));
+  fs.writeFileSync(path.join(outDir, "README.txt"), "\uFEFF" + crlf(readme));
   // Licencek: a sajátunk (MIT) és a csomagba kerülő függőségeké (a legtöbb licenc megköveteli a szöveg mellékelését).
   fs.writeFileSync(path.join(outDir, "LICENSE.txt"), crlf(fs.readFileSync(path.join(root, "LICENSE"), "utf8")));
   fs.writeFileSync(path.join(outDir, "LICENSES-third-party.txt"), crlf(thirdPartyLicenses(path.join(outDir, "app"))));
